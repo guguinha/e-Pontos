@@ -22,22 +22,20 @@
                         </style>
                             <?php 
                                 $this->table->set_heading("Foto","Data","Hora","tipo","NSR","Alterar");
-                                // foreach($pontos as $ponto){
+                                 foreach($pontos as $ponto){
                                     // if($publicacao->img == 1){
                                     //     $fotopub = img("assets/frontend/img/publicacao/".md5($publicacao->id).".jpg"); 
                                     // }else{
                                         $foto = img("assets/frontend/img/semFoto2.png"); 
                                     // }                                    
-                                    $data = "22/00/11";
-                                    $hora = "12:15";
-                                    $tipo = "Inicio Jornada";
-                                    $nsr = "000016973";
-                                    // $alterar = anchor(base_url('admin/pontos/alterar/'.md5($pontos->id)),'<i class="fa fa-refresh fa-fw"></i> Alterar');
-                                    $alterar = anchor(base_url('admin/pontos/#'),'<i class="fa fa-refresh fa-fw"></i> Alterar');
+                                    $data = $ponto->data;
+                                    $hora = $ponto->data;
+                                    $tipo = $ponto->tipo;
+                                    $nsr = $ponto->NSR;
+                                    $alterar = anchor(base_url('admin/pontos/alterar/'.md5($ponto->id)),'<i class="fa fa-refresh fa-fw"></i> Alterar');
 
                                     $this->table->add_row($foto,$data,$hora,$tipo,$nsr,$alterar);
-                                    $this->table->add_row($foto,$data,$hora,$tipo,$nsr,$alterar);
-                                // }
+                                 }
                                 $this->table->set_template(array(
                                     'table_open' => '<table class="table table-striped">'
                                 ));

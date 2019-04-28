@@ -8,6 +8,7 @@ class Pontos extends CI_Controller {
 		if(!$this->session->userdata('logado')){
 			redirect(base_url('admin/login'));
 		}
+		$this->load->model('Pontos_model','modelpontos');
 	}
 
 	public function index()
@@ -17,8 +18,7 @@ class Pontos extends CI_Controller {
 		$dados['titulo'] = 'Painel de Controle';
 		$dados['subtitulo'] = 'Pontos';
 		$dados['usuario'] = $this->session->userdata('userlogado')->nome;
-		//$dados['categorias'] = $this->categorias;
-		//$dados['publicacoes'] = $this->modelpublicacao->listar_publicacoes();
+		$dados['pontos'] = $this->modelpontos->pontos();
 
 		$this->load->view('backend/template/html-header',$dados);
 		$this->load->view('backend/template/template');
